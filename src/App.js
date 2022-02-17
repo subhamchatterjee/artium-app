@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Dashboard from './components/Dashboard';
+import TitleDetails from './components/TitleDetails';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="artium-app">
+      <Routes>
+        <Route path="/" element={<Dashboard defaultTitles={[]} />} />
+        <Route path="/title/:id" element={<TitleDetails defaultTitleDetails={null} />} />
+      </Routes>
     </div>
   );
 }
